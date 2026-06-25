@@ -99,5 +99,21 @@ Instead of fetching the notifications for each page load, keep a cache memory th
 
 The problem with this approach is, even though it would be fast, it would need a lot of extra / additional memory. This new memory will be more expensive. 
 
-Stage 
+Stage 5
+
+Problem: It should send to all 50,000 students an email at once, but instead, it failed after it reached the 200 mark. 
+Reason: Because it calls three functions at once, and these three functions when called at once, take significantly more time. 
+Instead of doing these three works all at once, we can do it twice. 
+
+First time, we will send the email to all the students at once, and push the notification to the app. 
+Next we will store all of it in our databases. 
+
+function notify_all(student_ids: array, message: string):
+    for student_id in student_ids:
+        send_email(student_id, message)
+        push_to_app(student_id, message)
+
+function notify_all(student_ids: array, message: string):
+    for student_id in student_ids:
+        save_to_db(student_id, message)
 
