@@ -1,5 +1,6 @@
 Basic Requirements: REST API Design, contract and structure to display notifications to the users when they are logged in
 
+Stage 1:
 Core Actions:
     -> Send Notifications
     -> Receive Notifications
@@ -57,3 +58,5 @@ JSON Request:
 
 Authorization: Only authorized personnel can delete messages after entering their authorized key / the password. 
 They Kay must be selected as Authorization and in value, they must add the Key / Password.
+
+Stage 2:
