@@ -94,5 +94,10 @@ Yes, indexes are the solution for this. These are used for easy and fast retriev
 
 select * from notifications where notification_type == 'Result' where message like '%Passed%' and date_time >= now() - internal 7 day;
 
+Stage 4
+Instead of fetching the notifications for each page load, keep a cache memory that keeps the last fetched page load and returns it if there are no new messages. 
 
+The problem with this approach is, even though it would be fast, it would need a lot of extra / additional memory. This new memory will be more expensive. 
+
+Stage 
 
