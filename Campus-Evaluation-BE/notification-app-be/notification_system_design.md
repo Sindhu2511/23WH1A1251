@@ -82,3 +82,17 @@ CREATE TABLE message(
     isread boolean
 );
 
+Stage 3:
+
+End Goal: Fetch all unread notifications of a student
+
+Yes, the query is accurate.
+The reason it is slow:
+There are around 5 milion students. Each student can get many messages per day, due to which there can be many un read as well. So running through the database to find them is hard. 
+
+Yes, indexes are the solution for this. These are used for easy and fast retrieval of values. 
+
+select * from notifications where notification_type == 'Result' where message like '%Passed%' and date_time >= now() - internal 7 day;
+
+
+
